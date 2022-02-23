@@ -4,17 +4,17 @@ using RegistrationAPI.Models;
 
 namespace RegistrationAPI.Services
 {
-    public interface IUserService
+    public interface IRegisterService
     {
         int Add(AddUserDto dto);
     }
 
-    public class UserService : IUserService
+    public class RegisterService : IRegisterService
     {
         private readonly UserDbContext _dbContext;
         private readonly IMapper _mapper;
 
-        public UserService(UserDbContext dbContext,IMapper mapper)
+        public RegisterService(UserDbContext dbContext,IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;

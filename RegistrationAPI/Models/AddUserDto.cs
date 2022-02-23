@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace RegistrationAPI.Models
 {
     public class AddUserDto
-    {
+    { 
         [Required]
         [MaxLength(15)]
         public string Login { get; set; }

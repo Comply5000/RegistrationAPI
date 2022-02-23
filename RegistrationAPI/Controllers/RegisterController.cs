@@ -8,12 +8,12 @@ using RegistrationAPI.Services;
 namespace RegistrationAPI.Controllers
 {
     [Route("api/registration")]
-    public class UserController : ControllerBase
+    public class RegisterController : ControllerBase
     {
-        private readonly IUserService _service;
+        private readonly IRegisterService _service;
         private readonly UserDbContext _dbContext;
 
-        public UserController(IUserService service,UserDbContext dbContext)
+        public RegisterController(IRegisterService service,UserDbContext dbContext)
         {
             _service = service;
             _dbContext = dbContext;

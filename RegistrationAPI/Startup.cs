@@ -21,12 +21,20 @@ namespace RegistrationAPI
             services.AddControllers();
             services.AddDbContext<UserDbContext>();
             services.AddAutoMapper(this.GetType().Assembly);
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRegisterService, RegisterService>();
+            services.AddScoped<ILoginService, LoginService>();
+            
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", o => o.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(o => o.AllowAnyOrigin());
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
